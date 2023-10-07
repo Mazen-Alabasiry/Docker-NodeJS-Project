@@ -1,0 +1,14 @@
+#  docker run --name=node-express-container -v .:/app:ro  -d -p 4000:4000 node-express-app 
+version: '3'
+services:
+  node-app:
+    container_name: node-express-container-production  
+    build:
+      context: .
+      target: production
+    ports:
+      - "5000:5000"      
+    environment:
+      - ENV=production
+      - PORT=5000
+      
